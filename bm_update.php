@@ -14,6 +14,8 @@ $bookComment = $_POST["bookComment"];
 $fname = $_FILES["fname"]["name"];   //File名
 $id = $_POST["id"];
 var_dump($fname);
+echo '<br>';
+echo $fname;
 //1-2. FileUpload処理
 $upload = "./img/";
 //アップロードした画像を./img/へ移動させる記述↓
@@ -48,8 +50,8 @@ if($status==false){
 
 }else{
   //select.phpへリダイレクト
-  header("Location: select_user.php");
-  exit;
+  // header("Location: backToSelect.php");
+  // exit;
 
 }
 
