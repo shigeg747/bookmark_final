@@ -69,9 +69,10 @@ if($status==false) {
           <div class="navbar-header">
             <!-- <a class="navbar-brand aaa" href="select_user.php">データ一覧</a> -->
             <a class="navbar-brand aaa" href="bookmark.html">データ登録</a>
-            <a class="navbar-brand aaa" href="logout.php">ログアウト</a>
             <a class="navbar-brand aaa" href="https://creativecafe.jp/select.php" target="_blank">有料会員特典</a>
-            <p class="name"  style="position:absolute; right:10px; color:black;"><?=$_SESSION["name"]?> 様</p>
+            <a class="navbar-brand aaa" href="logout.php">ログアウト</a>
+            <a class="navbar-brand aaa" href="toGo.php?id=<?=$_SESSION['id']?>">退会</a>
+            <p class="name"  style="position:absolute; right:10px; color:black;">プレミアム会員：　<?=$_SESSION["name"]?> 様</p>
             <!-- <a class="navbar-brand aaa" href="logout.php">ログアウト</a> -->
           </div>
         </div>

@@ -39,13 +39,20 @@ $val = $stmt->fetch(); //1レコードだけ取得する方法
 if( $lid != "" && $lid == "kanri" && $lpw != "" && $lpw == "kanri"){
   header("Location: user_kanri.php");
 } else
+
+//Login処理OKの場合
 if( $val["id"] != "" && $val["kanri_flg"] == 0){
   $_SESSION["chk_ssid"]  = session_id();
   $_SESSION["name"]   = $val['name'];
   $_SESSION["kanri_flg"] = $val["kanri_flg"];
-  //Login処理OKの場合
+  $_SESSION["id"] = $val["id"];
   header("Location: select_user.php");
-} else if( $val["id"] != "" && $val["kanri_flg"] == 1){
+} else
+if( $val["id"] != "" && $val["kanri_flg"] == 1){
+  $_SESSION["chk_ssid"]  = session_id();
+  $_SESSION["name"]   = $val['name'];
+  $_SESSION["kanri_flg"] = $val["kanri_flg"];
+  $_SESSION["id"] = $val["id"];
   header("Location: select_user_bill.php");
 } else {
   //Login処理NGの場合login.phpへ遷移

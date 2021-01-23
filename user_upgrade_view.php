@@ -2,9 +2,9 @@
 
 session_start();
 include("funcs.php");
-// loginCheck();
+loginCheck();
 
-$id = $_GET["id"];
+$id = $_SESSION["id"];
 
 //1. DB接続します
 $pdo = db_connect();
@@ -39,7 +39,7 @@ if($status==false){
 <main class="main">
   <div class="container">
     <!-- Head[Start] -->
-    <header>
+    <!-- <header>
       <nav class="navbar navbar-default">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -47,13 +47,13 @@ if($status==false){
           </div>
         </div>
       </nav>
-    </header>
+    </header> -->
     <!-- Head[End] -->
 
     <!-- Main[Start] -->
     <div class="form-wrapper2">
-      <h1 class="form_title">ユーザー登録情報修正</h1>
-      <form method="post" action="user_update.php">
+      <h1 class="form_title">アップグレード</h1>
+      <form method="post" action="user_upgrade.php">
         <dl class="form-inner">
           <dt class="form-title_reg">名前：</dt>
           <dd class="form-item_reg"><input class="input_reg" type="text" name="name" value="<?=$row['name']?>" required></dd>
@@ -63,17 +63,14 @@ if($status==false){
           <dd class="form-item_reg"><input class="input_reg" type="text" name="lpw" value="<?=$row['lpw']?>" required></dd>
           <div style="display:block;">
             <div style="display: flex; margin: 0 0 10px 0">
-              <dd><input type="radio" name="kanri_flg" value="0" checked>無料会員：</dd>
-              <dd><input type="radio" name="kanri_flg" value="1">有料会員：</dd>
-            </div>
-            <div style="display: flex;">
-              <dd><input type="radio" name="life_flg" value="0" checked>継続：</dd>
-              <dd><input type="radio" name="life_flg" value="1">退会：</dd>
+              <!-- <dd><input type="radio" name="kanri_flg" value="0">無料会員：</dd> -->
+              <dd><input type="radio" name="kanri_flg" value="1" checked>有料会員：</dd>
               <input type="hidden" name="id" value="<?=$row['id']?>">
+              <input type="hidden" name="life_flg" value="<?=$row['life_flg']?>">
             </div>
           </div>
         </dl>
-        <input class="sub_btn" type="submit" value="更新"><input class="sub_btn" type="reset" value="リセット">
+        <input class="sub_btn" type="submit" value="アップグレード"><a href="select_user.php"><input class="sub_btn" type="button" value="キャンセル"></a>
       </form>
     </div>
   </div>

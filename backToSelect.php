@@ -11,6 +11,8 @@ $pdo = db_connect();
 $stmt = $pdo->prepare("SELECT * FROM gs_bm_table");
 $status = $stmt->execute();
 
+var_dump($_SESSION["kanri_flg"]);
+var_dump($_SESSION["id"]);
 
 
 // }else
